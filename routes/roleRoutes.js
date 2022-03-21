@@ -2,24 +2,7 @@ const db = require("../db/connection");
 const inputCheck = require("../utils/inputCheck");
 
 // Get all roles and their employee affiliation
-const getRoles = () => {
-  const sql = `SELECT roles.*, employees.name 
-                AS employee_name 
-                FROM roles 
-                LEFT JOIN employees 
-                ON roles.employee_id = employees.id`;
 
-  db.query(sql, (err, rows) => {
-    if (err) {
-      console.log({ error: err.message });
-      return;
-    }
-    console.log({
-      message: "success",
-      data: rows,
-    });
-  });
-};
 
 // Get single role with employee affiliation
 // router.get("/role/:id", (req, res) => {

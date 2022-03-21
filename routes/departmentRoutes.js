@@ -2,23 +2,7 @@ const db = require("../db/connection");
 const inputCheck = require("../utils/inputCheck");
 
 // Get all departments and their role affiliation
-const getDepartments = () => {
-  const sql = `SELECT departments.*, roles.name 
-                AS role_name 
-                FROM departments 
-                LEFT JOIN roles  
-                ON departments.role_id = roles.id`;
 
-  db.query(sql, (err, rows) => {
-    if (err) {
-     console.log({ error: err.message });
-    }
-   console.log({
-      message: "success",
-      data: rows,
-    });
-  });
-};
 
 // Get single department with role affiliation
 // router.get("/department/:id", (req, res) => {
